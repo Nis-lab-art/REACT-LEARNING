@@ -1,3 +1,24 @@
+import { Link } from "react-router-dom";
+
+const navItem = [
+  {
+    name: "Home",
+    value: "/",
+  },
+  {
+    name: "About Us",
+    value: "/about",
+  },
+  {
+    name: "Contact",
+    value: "/contact",
+  },
+  {
+    name: "Cart",
+    value: "/cart",
+  },
+];
+
 const Header = () => {
   return (
     <div className="header">
@@ -8,10 +29,11 @@ const Header = () => {
       />
       <div className="nav-container">
         <ul className="nav-items">
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact</li>
-          <li>Cart</li>
+          {navItem.map((item) => (
+            <li>
+              <Link to={item.value}>{item.name}</Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
