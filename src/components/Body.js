@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [products, setProducts] = useState([]);
@@ -83,7 +84,13 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredProducts.map((item) => (
-          <ProductCard key={item.id} resData={item} />
+          <Link
+            key={item.id}
+            to={"/product/" + item.id}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ProductCard resData={item} />
+          </Link>
         ))}
       </div>
     </div>

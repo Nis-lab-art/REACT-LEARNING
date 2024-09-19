@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import RouteError from "./components/RouteError";
+import Product from "./components/Product";
 
 const App = () => {
   return (
@@ -31,8 +32,12 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "contact",
+        path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/product/:pid",
+        element: <Product />,
       },
     ],
     errorElement: <RouteError />,

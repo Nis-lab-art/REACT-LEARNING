@@ -2,18 +2,22 @@ import { Link } from "react-router-dom";
 
 const navItem = [
   {
+    id: 1,
     name: "Home",
     value: "/",
   },
   {
+    id: 2,
     name: "About Us",
     value: "/about",
   },
   {
+    id: 3,
     name: "Contact",
     value: "/contact",
   },
   {
+    id: 4,
     name: "Cart",
     value: "/cart",
   },
@@ -30,8 +34,13 @@ const Header = () => {
       <div className="nav-container">
         <ul className="nav-items">
           {navItem.map((item) => (
-            <li>
-              <Link to={item.value}>{item.name}</Link>
+            <li key={item.id}>
+              <Link
+                to={item.value}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>
