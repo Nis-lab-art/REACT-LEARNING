@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useFetchData from "../../utils/useFetchData";
 
 const Product = () => {
   const { pid } = useParams();
-  const [product, setProduct] = useState();
-
-  const getDataById = async () => {
-    const res = await fetch(`https://dummyapi.online/api/products/${pid}`);
-    const json = await res.json();
-    console.log(json);
-    setProduct(json);
-  };
-  useEffect(() => {
-    getDataById();
-  }, []);
+  const product = useFetchData(pid);
 
   if (!product) return <h1>Loading...</h1>;
   return (
