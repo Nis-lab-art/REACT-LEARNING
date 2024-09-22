@@ -85,7 +85,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap justify-around space-y-4">
+      <div className="grid grid-cols-4 gap-4 p-4 md:gap-6 md:p-6 lg:gap-8 lg:p-8">
         {filteredProducts.map((item) => (
           <Link key={item.id} to={"/product/" + item.id}>
             <ProductCard resData={item} />

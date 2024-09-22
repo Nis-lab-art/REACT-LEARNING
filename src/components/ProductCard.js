@@ -1,15 +1,16 @@
 const ProductCard = (props) => {
   const { resData } = props;
-  const {
-    name,
-    brand,
-    description,
-    basePrice,
-    thumbnailImage,
-    productCategory,
-  } = resData;
+  const { name, brand, description, basePrice, thumbnailImage, stock } =
+    resData;
   return (
     <div className="border-2 hover:shadow-lg shadow-blue-500/50 rounded-lg w-80 overflow-hidden">
+      {stock <= 20 ? (
+        <label className="absolute rounded-lg p-2 text-sm bg-red-400 text-white">
+          Low on stock
+        </label>
+      ) : (
+        ""
+      )}
       <div className="w-full h-48 p-4">
         <img
           className="w-full h-full object-cover"
