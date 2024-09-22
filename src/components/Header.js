@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 const navItem = [
   {
@@ -25,20 +26,15 @@ const navItem = [
 
 const Header = () => {
   return (
-    <div className="header">
-      <img
-        className="logo"
-        alt="logo"
-        src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
-      />
-      <div className="nav-container">
-        <ul className="nav-items">
+    <div className="flex bg-blue-500 justify-between min-h-20 shadow-md shadow-gray-400">
+      <div className="flex justify-between items-center px-6">
+        <img className="w-10 h-10" alt="logo" src={logo} />
+      </div>
+      <div className="flex px-6">
+        <ul className="flex justify-center items-center space-x-4 text-white">
           {navItem.map((item) => (
             <li key={item.id}>
-              <Link
-                to={item.value}
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
+              <Link className="text-lg" to={item.value}>
                 {item.name}
               </Link>
             </li>

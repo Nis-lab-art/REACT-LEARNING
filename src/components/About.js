@@ -18,11 +18,11 @@ class About extends Component {
     const { count } = this.state;
 
     return (
-      <div>
-        {" "}
-        <h1>About</h1>
-        <h2>{count}</h2>
+      <div className="border-2 border-gray-400 m-4 p-4 space-y-4">
+        <h1 className="text-2xl font-bold">About</h1>
+        <h2 className="text-lg font-bold">{count}</h2>
         <button
+          className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
           onClick={() => {
             this.setState({
               count: count + 1,

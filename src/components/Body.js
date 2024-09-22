@@ -33,18 +33,19 @@ const Body = () => {
   return products.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body-container">
-      <div className="filter-options">
-        <div className="search-filter">
+    <div className="mt-6 mb-10 space-y-10">
+      <div className="flex justify-around">
+        <div className="space-x-2">
           <input
             type="text"
-            className="search-input"
+            className="border-2 border-gray-500 bg-white px-5 pr-16 h-10 rounded-lg text-sm focus:outline-none focus:border-gray-400"
             value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value);
             }}
           />
           <button
+            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
             onClick={() => {
               const res = products.filter((item) =>
                 item?.name?.toLowerCase().includes(searchValue?.toLowerCase())
@@ -55,12 +56,14 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="category-filter">
+        <div className="space-x-2">
           {" "}
-          <label>Choose a car:</label>
+          <label className="text-gray-700 text-lg font-bold mb-2">
+            Choose a car:
+          </label>
           <select
             name="cars"
-            className="select"
+            className="border-2 border-gray-500 h-10 rounded-lg"
             onChange={handleProductCategory}
           >
             <option value="">Select a category...</option>
@@ -72,7 +75,7 @@ const Body = () => {
         <div>
           {" "}
           <button
-            className="top-res-btn"
+            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
             onClick={() => {
               let topRes = products.filter((item) => item.basePrice <= 999);
               setFilteredProducts(topRes);
@@ -82,13 +85,9 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-around space-y-4">
         {filteredProducts.map((item) => (
-          <Link
-            key={item.id}
-            to={"/product/" + item.id}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
+          <Link key={item.id} to={"/product/" + item.id}>
             <ProductCard resData={item} />
           </Link>
         ))}

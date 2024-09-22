@@ -8,12 +8,12 @@ const Product = () => {
 
   if (!product) return <h1>Loading...</h1>;
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <p>Brand: {product.brand}</p>
+    <div className="border-2 border-gray-400 m-4 p-4">
+      <h1 className="text-xl font-bold">{product.name}</h1>
+      <p className="text-lg font-bold">Brand: {product.brand}</p>
       <img alt="res-image" src={product.thumbnailImage} />
-      <p>{product.description}</p>
-      <h3>Rs. {product.basePrice}</h3>
+      <p className="text-lg">{product.description}</p>
+      <h3 className="text-lg">Rs. {product.basePrice}</h3>
     </div>
   );
 };
