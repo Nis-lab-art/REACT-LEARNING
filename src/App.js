@@ -7,13 +7,18 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RouteError from "./components/RouteError";
 import Product from "./components/Product";
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <Outlet />
-      {/* <Footer /> */}
+      <Provider store={appStore}>
+        <Header />
+        <Outlet />
+        {/* <Footer /> */}
+      </Provider>
     </div>
   );
 };
@@ -38,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:pid",
         element: <Product />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <RouteError />,
